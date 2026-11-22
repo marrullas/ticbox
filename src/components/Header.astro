@@ -1,0 +1,86 @@
+---
+import { NAV } from '../data/site';
+---
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="logo" href="/#inicio" aria-label="TICBOX, ir al inicio">
+      TIC<b>BOX</b><span class="logo-dot" aria-hidden="true"></span>
+    </a>
+
+    <button
+      class="menu-btn"
+      type="button"
+      aria-expanded="false"
+      aria-controls="menu"
+      aria-label="Abrir menú"
+    >
+      <span aria-hidden="true">☰</span>
+    </button>
+
+    <nav id="menu" class="nav-links" aria-label="Navegación principal">
+      {NAV.map((item) => (
+        <a href={`/${item.href}`}>{item.label}</a>
+      ))}
+      <a class="btn small" href="/#contacto">
+        Hablemos <span aria-hidden="true">→</span>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const header = document.querySelector<HTMLElement>('.site-header');
+  const button = document.querySelector<HTMLButtonElement>('.menu-btn');
+  const menu = document.getElementById('menu');
+
+  const setOpen = (open: boolean) => {
+    if (!menu || !button) return;
+    menu.classList.toggle('open', open);
+    button.setAttribute('aria-expanded', String(open));
+    button.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+  };
+
+  button?.addEventListener('click', () => {
+    setOpen(!menu?.classList.contains('open'));
+  });
+
+  menu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => setOpen(false));
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') setOpen(false);
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!menu?.classList.contains('open')) return;
+    const target = event.target as Node;
+    if (!menu.contains(target) && !button?.contains(target)) setOpen(false);
+  });
+
+  const onScroll = () => header?.classList.toggle('scrolled', window.scrollY > 8);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  const links = Array.from(
+    document.querySelectorAll<HTMLAnchorElement>('.nav-links a[href^="/#"]'),
+  );
+
+  if ('IntersectionObserver' in window && links.length) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          const id = `#${entry.target.id}`;
+          links.forEach((link) => {
+            link.classList.toggle('is-active', link.hash === id);
+          });
+        }
+      },
+      { rootMargin: '-45% 0px -50% 0px' },
+    );
+
+    document.querySelectorAll('main section[id]').forEach((section) => observer.observe(section));
+  }
+</script>

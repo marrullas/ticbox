@@ -1,0 +1,277 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import ToolCard from '../components/ToolCard.astro';
+import { SITE } from '../data/site';
+import { services } from '../data/services';
+import { projects } from '../data/projects';
+import { tools } from '../data/tools';
+import { expertise, stack } from '../data/expertise';
+import { processSteps } from '../data/process';
+---
+
+<BaseLayout>
+  <!-- Hero -->
+  <section class="hero" id="inicio" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Desarrollo · Integración · Inteligencia artificial</div>
+        <h1 id="hero-title">Tecnología que <em>resuelve.</em></h1>
+        <p class="lead">
+          Desarrollamos software, integramos sistemas y aplicamos inteligencia artificial para
+          simplificar procesos, conectar información y construir soluciones a problemas reales.
+        </p>
+        <div class="actions">
+          <a class="btn" href="#servicios">Explorar servicios <span aria-hidden="true">↓</span></a>
+          <a class="btn alt" href="#contacto">Cuéntame tu proyecto <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+
+      <div class="tech-card">
+        <div class="terminal" aria-hidden="true">
+          <div class="dots"><i></i><i></i><i></i></div>
+          <div><span class="green">const</span> ticbox = &#123;</div>
+          <div>&nbsp; enfoque: <span class="green">'soluciones reales'</span>,</div>
+          <div>&nbsp; especialidades: [</div>
+          <div>&nbsp;&nbsp; <span class="green">'software'</span>,</div>
+          <div>&nbsp;&nbsp; <span class="green">'IA y automatización'</span>,</div>
+          <div>&nbsp;&nbsp; <span class="green">'consultoría'</span></div>
+          <div>&nbsp; ],</div>
+          <div>&nbsp; estado: <span class="green">'creando futuro'</span></div>
+          <div>&#125;;</div>
+        </div>
+        <div class="chip-row" aria-hidden="true">
+          <span class="chip">Software a medida</span>
+          <span class="chip">Agentes de IA</span>
+          <span class="chip">Integración de sistemas</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios -->
+  <section class="section light" id="servicios" aria-labelledby="servicios-title">
+    <div class="wrap">
+      <div class="eyebrow">Qué hacemos</div>
+      <h2 id="servicios-title">Software, integración e inteligencia aplicada.</h2>
+      <p class="section-intro">
+        Elegimos las tecnologías según el problema: soluciones útiles, mantenibles y adaptadas a
+        los objetivos de cada proyecto.
+      </p>
+      <div class="services-grid">
+        {services.map((service) => <ServiceCard service={service} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- Portafolio -->
+  <section class="section portfolio" id="proyectos" aria-labelledby="proyectos-title">
+    <div class="wrap">
+      <div class="eyebrow">Portafolio / productos digitales</div>
+      <h2 id="proyectos-title">Soluciones reales. Tecnología aplicada.</h2>
+      <p class="section-intro">
+        Productos y herramientas que muestran diferentes capacidades: software a medida,
+        aprendizaje asistido por IA, integración de plataformas, agentes y desarrollo móvil.
+      </p>
+
+      <div class="portfolio-grid">
+        {projects.map((project) => <ProjectCard project={project} />)}
+      </div>
+
+      <div class="portfolio-tools">
+        <div>
+          <div class="eyebrow">Herramientas / Chrome</div>
+          <h3>Extensiones de navegador</h3>
+          <p>
+            Herramientas especializadas que amplían las capacidades del navegador y conectan flujos
+            de trabajo.
+          </p>
+        </div>
+        <div class="tools-grid">
+          {tools.map((tool, index) => <ToolCard tool={tool} index={index} />)}
+        </div>
+      </div>
+
+      <p class="portfolio-footnote">
+        Las imágenes corresponden a capturas proporcionadas para el portafolio. Las funcionalidades
+        y participaciones específicas se documentarán con mayor detalle en los casos de estudio.
+      </p>
+    </div>
+  </section>
+
+  <!-- Laboratorio -->
+  <section class="section lab" id="laboratorio" aria-labelledby="laboratorio-title">
+    <div class="wrap lab-flex">
+      <div>
+        <div class="eyebrow">TICBOX Lab</div>
+        <h2 id="laboratorio-title">Explorar. Experimentar. Construir.</h2>
+        <p class="section-intro">
+          Exploramos aplicaciones prácticas de agentes inteligentes, RAG, MCP, automatización e
+          ingeniería de software asistida por IA. Compartimos prototipos y aprendizajes sin
+          confundir experimentos con productos terminados.
+        </p>
+        <a class="btn alt" href="#contacto">Proponer una colaboración <span aria-hidden="true">→</span></a>
+      </div>
+
+      <div class="lab-board">
+        <div class="lab-line"><b>01</b> Agentes de IA y uso de herramientas</div>
+        <div class="lab-line"><b>02</b> RAG y recuperación de información</div>
+        <div class="lab-line"><b>03</b> Automatización de procesos y flujos</div>
+        <div class="lab-line"><b>04</b> MCP, APIs e integración de datos</div>
+        <p class="lab-footnote">Líneas de exploración; no representan productos publicados.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contenido / YouTube -->
+  <section class="section media" id="contenido" aria-labelledby="contenido-title">
+    <div class="wrap youtube">
+      <div>
+        <div class="eyebrow">Contenido y divulgación</div>
+        <h2 id="contenido-title">También contamos historias sobre tecnología.</h2>
+        <p class="section-intro">
+          La comunicación y la creación audiovisual complementan el trabajo técnico. Descubre el
+          canal principal de Mauricio Fernández y su producción de contenidos.
+        </p>
+        <a class="btn" href={SITE.youtube} target="_blank" rel="noopener noreferrer">
+          Visitar canal de YouTube <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+
+      <a
+        class="video-frame"
+        href={SITE.youtube}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Abrir el canal de YouTube de Mauricio Fernández"
+      >
+        <span class="play" aria-hidden="true">▶</span>
+        <span class="video-label">Mauricio Fernández · YouTube</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Sobre mí -->
+  <section class="section" id="sobre-mi" aria-labelledby="sobre-mi-title">
+    <div class="wrap about">
+      <div class="portrait">
+        <div class="portrait-mark" aria-hidden="true">MF<sup>.</sup></div>
+        <div class="portrait-meta">
+          <strong>Mauricio Fernández</strong>
+          <span>Software · IA aplicada · Integración</span>
+        </div>
+        <span class="portrait-status"><i aria-hidden="true"></i> Disponible para proyectos</span>
+      </div>
+
+      <div>
+        <div class="eyebrow">La persona detrás de la marca</div>
+        <h2 id="sobre-mi-title">Hola, soy Mauricio Fernández.</h2>
+        <p>
+          Soy desarrollador de software y consultor tecnológico con experiencia en el análisis,
+          diseño, construcción e integración de soluciones digitales.
+        </p>
+        <p>
+          Mi trabajo combina ingeniería de software, aplicaciones web y móviles, automatización e
+          inteligencia artificial aplicada. He desarrollado plataformas SaaS, herramientas de
+          integración y agentes que conectan información, sistemas y procesos operativos.
+        </p>
+        <p>
+          He participado en proyectos independientes y en equipos de desarrollo. Formo parte de la
+          Fundación Parque Tecnológico del Software y mantengo vínculos con otros profesionales
+          para explorar colaboraciones multidisciplinarias según cada proyecto.
+        </p>
+
+        <div class="experience">
+          {stack.map((item) => <span>{item}</span>)}
+        </div>
+
+        <a class="btn alt" href={SITE.linkedin} target="_blank" rel="noopener noreferrer">
+          Ver perfil en LinkedIn <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experiencia -->
+  <section class="section expertise-section" id="experiencia" aria-labelledby="experiencia-title">
+    <div class="wrap expertise-layout">
+      <div class="expertise-intro">
+        <div class="eyebrow">Experiencia y conocimiento</div>
+        <h2 id="experiencia-title">Experiencia que se convierte en soluciones.</h2>
+        <p>
+          Experiencia en el ciclo completo del software: análisis, arquitectura, desarrollo,
+          integración, pruebas, despliegue y operación de soluciones digitales.
+        </p>
+        <p>
+          En TICBOX combinamos experiencia práctica, criterio técnico y aprendizaje continuo para
+          abordar cada reto con una perspectiva completa.
+        </p>
+        <a class="btn alt" href="#contacto">Conversemos sobre tu proyecto <span aria-hidden="true">↗</span></a>
+      </div>
+
+      <div class="expertise-list">
+        {expertise.map((item, index) => (
+          <article class="expertise-item">
+            <div class="expertise-number">{String(index + 1).padStart(2, '0')}</div>
+            <div>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Cómo trabajamos -->
+  <section class="section collaboration" id="colaboracion" aria-labelledby="colaboracion-title">
+    <div class="wrap">
+      <div class="collab-head">
+        <div class="eyebrow">Nuestro enfoque</div>
+        <h2 id="colaboracion-title">Experiencia humana, herramientas inteligentes y colaboración.</h2>
+        <p>
+          Combinamos análisis técnico, desarrollo de software, herramientas de inteligencia
+          artificial y colaboración con profesionales especializados cuando el alcance lo requiere.
+        </p>
+      </div>
+
+      <div class="collab-grid">
+        {processSteps.map((step, index) => (
+          <article>
+            <span>{String(index + 1).padStart(2, '0')} /</span>
+            <h3>{step.title}</h3>
+            <p>{step.description}</p>
+          </article>
+        ))}
+      </div>
+
+      <p class="collab-note">
+        Mauricio Fernández forma parte de la Fundación Parque Tecnológico del Software. Esta
+        referencia describe una vinculación profesional personal y no implica patrocinio ni respaldo
+        institucional de TICBOX.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section class="section contact" id="contacto" aria-labelledby="contacto-title">
+    <div class="wrap">
+      <div class="eyebrow">Conversemos</div>
+      <h2 id="contacto-title">¿Tienes un proyecto en mente?</h2>
+      <p>
+        Ya sea una solución digital, una colaboración técnica o una oportunidad profesional,
+        conversemos sobre cómo podemos trabajar juntos.
+      </p>
+      <div class="actions">
+        <a class="btn" href={`mailto:${SITE.email}?subject=Contacto%20desde%20TICBOX`}>
+          Enviar correo <span aria-hidden="true">↗</span>
+        </a>
+        <a class="btn alt" href={SITE.linkedin} target="_blank" rel="noopener noreferrer">
+          Conectar en LinkedIn <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+      <a class="contact-mail" href={`mailto:${SITE.email}`}>{SITE.email}</a>
+    </div>
+  </section>
+</BaseLayout>

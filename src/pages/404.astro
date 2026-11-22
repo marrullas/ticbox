@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../data/site';
+---
+
+<BaseLayout title="Página no encontrada | TICBOX" noindex>
+  <section class="notfound">
+    <div class="wrap">
+      <div class="notfound-code" aria-hidden="true">404</div>
+      <h1>Esta página no existe.</h1>
+      <p>
+        Puede que el enlace haya cambiado o que la dirección esté mal escrita. Volvamos a lo que
+        sí está construido.
+      </p>
+      <div class="actions" style="justify-content:center">
+        <a class="btn" href="/">Ir al inicio <span aria-hidden="true">→</span></a>
+        <a class="btn alt" href={`mailto:${SITE.email}`}>Escribirme</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

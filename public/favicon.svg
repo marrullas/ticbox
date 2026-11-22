@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="TICBOX">
+  <rect width="64" height="64" rx="14" fill="#091522"/>
+  <rect x="1.5" y="1.5" width="61" height="61" rx="12.5" fill="none" stroke="#48e1c2" stroke-opacity=".32" stroke-width="2"/>
+  <path d="M13 18h27v7.4h-9.6V48h-7.8V25.4H13z" fill="#48e1c2"/>
+  <rect x="42.5" y="33" width="9" height="9" rx="1.6" fill="#48e1c2"/>
+</svg>

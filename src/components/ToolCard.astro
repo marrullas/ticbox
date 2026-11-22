@@ -1,0 +1,17 @@
+---
+import type { Tool } from '../data/tools';
+
+interface Props {
+  tool: Tool;
+  index: number;
+}
+
+const { tool, index } = Astro.props;
+---
+
+<div class="tool-card">
+  <span class="tool-num">{String(index + 1).padStart(2, '0')}</span>
+  <strong>{tool.name}</strong>
+  <p>{tool.description}</p>
+  <span>{tool.tag}</span>
+</div>
