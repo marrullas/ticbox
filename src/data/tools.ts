@@ -12,9 +12,9 @@ export const tools: Tool[] = [
     tag: 'Privacidad · Productividad',
   },
   {
-    name: 'Senalsis – Zajuna Bridge',
+    name: 'Senalisis – Zajuna Bridge',
     description:
-      'Componente de integración que conecta el ecosistema Senalsis con Zajuna.',
+      'Componente de integración que conecta el ecosistema Senalisis con Zajuna.',
     tag: 'Integración',
   },
   {
@@ -24,7 +24,7 @@ export const tools: Tool[] = [
     tag: 'Automatización · Productividad',
   },
   {
-    name: 'Senalsis Bridge Lite',
+    name: 'Senalisis Bridge Lite',
     description:
       'Versión ligera del puente de integración para flujos de consulta puntuales.',
     tag: 'Integración',

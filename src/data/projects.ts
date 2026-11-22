@@ -1,6 +1,6 @@
 import type { ImageMetadata } from 'astro';
 import zabia from '../assets/images/zabia.png';
-import senalsis from '../assets/images/senalsis.png';
+import senalisis from '../assets/images/senalisis.png';
 import senaida from '../assets/images/senaida.png';
 import markaf from '../assets/images/markaf.png';
 
@@ -34,16 +34,16 @@ export const projects: Project[] = [
     linkLabel: 'Visitar proyecto',
   },
   {
-    slug: 'senalsis',
+    slug: 'senalisis',
     number: '02',
     category: 'Plataformas · Integración',
-    title: 'Senalsis',
+    title: 'Senalisis',
     description:
       'Plataforma de seguimiento académico con indicadores, gestión de evidencias e integración de información de Zajuna (Moodle).',
     tags: ['Moodle', 'Dashboards', 'Integraciones'],
-    image: senalsis,
-    imageAlt: 'Panel de seguimiento académico de Senalsis',
-    href: 'https://senalsis.app/',
+    image: senalisis,
+    imageAlt: 'Panel de seguimiento académico de Senalisis',
+    href: 'https://senalisis.app/',
     linkLabel: 'Visitar proyecto',
   },
   {
@@ -52,7 +52,7 @@ export const projects: Project[] = [
     category: 'Agentes · Automatización',
     title: 'SenAIda',
     description:
-      'Agente de IA de escritorio que conecta Senalsis mediante API y Zajuna mediante automatización web para asistir tareas académicas y operativas.',
+      'Agente de IA de escritorio que conecta Senalisis mediante API y Zajuna mediante automatización web para asistir tareas académicas y operativas.',
     tags: ['Agentes IA', 'Flujos de trabajo'],
     image: senaida,
     imageAlt: 'Interfaz de SenAIda con asistente conversacional y seguimiento de fichas',
